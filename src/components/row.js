@@ -8,7 +8,7 @@ export default function Row(props) {
 
   function countChange(e){
     setCount((e.target.value))
-      calculateAmountAndUpdate(price,e.target.value)
+    calculateAmountAndUpdate(price,e.target.value)
   }
   
   function countPrice(e){
@@ -24,15 +24,21 @@ export default function Row(props) {
     if(count===''){
       count=0;
     }
-    amt=calculateProduct(parseInt(price) ,parseInt(count))
-    setAmount(amt)
-    console.log();
-    props.Testprop({'amt':amt,'row': props.rowName})
+    if(is_checked){
+      amt=calculateProduct(parseInt(price) ,parseInt(count))
+      setAmount(amt)
+      props.Testprop({'amt':amt,'row': props.rowName})
+    }
   }
 
   function chengeCheckbox(e){
+    let amt=0
+    if((e.target.checked)){
+        amt= calculateProduct(price,count)
+      }
+      setAmount(amt)
+      props.Testprop({'amt':amt,'row': props.rowName}) 
       setChecked(!is_checked)
-      setAmount(calculateProduct(price,count))
   }
 
   function calculateProduct(price,count){

@@ -53,7 +53,7 @@ export default function Table() {
                 </thead>
                 <tbody>
                 {Total.total.map((curr,index)=> (
-                    <Row
+                    <Row key={index}
                         Testprop={parentToChild}
                         rowName={'row'+index}
                     ></Row>
@@ -61,7 +61,7 @@ export default function Table() {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><button onClick={addNewRow}>add new row</button></td>
+                        <td><button onClick={addNewRow}>Add New Row</button></td>
                         <td colSpan='3' align='right'>Total</td>
                         {<td>{Total.grandTotal}</td>}
                     </tr>
