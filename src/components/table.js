@@ -13,7 +13,7 @@ export default function Table() {
         let temp=Total
         let updated=false
         temp.total.forEach(ele => {
-            if(ele.name==e.row){
+            if(ele.name===e.row){
                 ele.amount=e.amt
                 updated=true
             }
