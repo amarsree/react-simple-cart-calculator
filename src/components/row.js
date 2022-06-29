@@ -1,6 +1,6 @@
 import React,  { useState } from 'react'
 
-export default function Row({setGrandTotalChanger,valGrandTotal}) {
+export default function Row(props) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
   const [amount, setAmount] = useState(0);
@@ -17,14 +17,17 @@ export default function Row({setGrandTotalChanger,valGrandTotal}) {
   }
 
   function calculateAmountAndUpdate(price,count){
+    let amt=0;
     if(price===''){
       price=0;
     }
     if(count===''){
       count=0;
     }
-    setAmount(calculateProduct(parseInt(price) ,parseInt(count)))
-    setGrandTotalChanger(parseInt(valGrandTotal)+parseInt(calculateProduct(price,count)))
+    amt=calculateProduct(parseInt(price) ,parseInt(count))
+    setAmount(amt)
+    console.log();
+    props.Testprop({'amt':amt,'row': props.rowName})
   }
 
   function chengeCheckbox(e){
